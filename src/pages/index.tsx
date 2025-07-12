@@ -1,48 +1,44 @@
-import Head from 'next/head'
+import { motion } from "framer-motion";
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Tru Bui | Portfolio</title>
-        <meta name="description" content="Tru Bui - CS + ECE Student Portfolio" />
-      </Head>
+	return (
+	<>
+		<nav className="fixed top-0 w-full bg-white shadow p-4 z-10">
+		<ul className="flex justify-center gap-8 text-black">
+			<li><a href="#hero" className="hover:underline">Home</a></li>
+			<li><a href="#projects" className="hover:underline">Projects</a></li>
+			<li><a href="#experience" className="hover:underline">Experience</a></li>
+			<li><a href="#contact" className="hover:underline">Contact</a></li>
+		</ul>
+		</nav>
 
-      <main className="min-h-screen bg-white text-gray-800 px-4 sm:px-8 py-12">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold mb-4">👋 Hey, I’m Tru Bui</h1>
-          <p className="mb-6 text-lg">
-            Computer Science & ECE Minor @ Purdue · Software Engineering · Systems · Embedded · ML Research
-          </p>
+		<main className="scroll-smooth">
+		<section id="hero" className="pt-24 min-h-screen flex items-center justify-center bg-black text-white scroll-mt-20">	
+			<motion.h1
+				className="text-5xl font-bold"
+				initial={{ opacity: 0, y: 50 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 1 }}
+			>
+				Hi, I’m Tru Bui
+			</motion.h1>
+		</section>
 
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition"
-          >
-            View Resume
-          </a>
+		<section id="projects" className="min-h-screen p-8 bg-gray-100 text-black scroll-mt-20">
+			<h2 className="text-3xl font-bold mb-4">Projects</h2>
+			{/* Add project cards here */}
+		</section>
 
-          <div className="mt-10">
-            <h2 className="text-2xl font-semibold mb-2">Projects</h2>
-            <ul className="list-disc list-inside space-y-2">
-              <li>
-                <strong>MyShell</strong>: Custom Unix-style shell in C with job control and piping.
-              </li>
-              <li>
-                <strong>Simple C Compiler</strong>: Lex/Yacc-based compiler that outputs x86-64 assembly.
-              </li>
-              <li>
-                <strong>TeamSync</strong>: Full-stack React app with event scheduling, RSVP, and workout tracking.
-              </li>
-              <li>
-                <strong>ADAPT / PEG3 (VA Intern)</strong>: Azure FunctionApp SMS platform used by 200+ veterans.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </main>
-    </>
-  )
+		<section id="experience" className="min-h-screen p-8 bg-white text-black scroll-mt-20">
+			<h2 className="text-3xl font-bold mb-4">Experience</h2>
+			{/* Experience timeline (we can animate this later) */}
+		</section>
+
+		<section id="contact" className="min-h-screen p-8 bg-gray-200 text-black scroll-mt-20">
+			<h2 className="text-3xl font-bold mb-4">Contact</h2>
+			<p>tjbui@tech4research.com</p>
+		</section>
+		</main>
+	</>
+	);
 }
